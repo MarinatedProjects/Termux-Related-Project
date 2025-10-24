@@ -1,0 +1,15 @@
+# No Acheivement #
+
+mkdir mcserverbedrock
+
+cd mcserverbedrock/
+
+pkg install -y make autoconf automake m4 getconf bison clang git cmake pkg-config re2c libtool wget
+
+curl -sL https://get.pmmp.io | bash -s -
+
+wget https://github.com/pmmp/PHP-Binaries/releases/download/pm5-php-8.3-latest/PHP-8.3-Android-arm64-PM5.tar.gz
+
+tar -xf PHP-8.3-Android-arm64-PM5.tar.gz
+
+./start.sh
