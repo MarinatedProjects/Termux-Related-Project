@@ -1,0 +1,48 @@
+pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh
+
+./start-ubuntu.sh
+
+apt update && apt upgrade -y
+
+apt install git wget nano -y
+
+apt install openjdk-21-jdk -y
+
+mkdir mcserver
+
+cd mcserver/
+
+git config --global --unset core.autocrlf
+
+# CHOOSE MINECRAFT SERVER (VANILLA / PAPERMC, OR WHATEVER) #
+
+wget https://fill-data.papermc.io/v1/objects/8de7c52c3b02403503d16fac58003f1efef7dd7a0256786843927fa92ee57f1e/paper-1.21.8-60.jar
+
+mv paper-1.21.8-60.jar server.jar
+
+java -jar server.jar
+
+# Change the eula to true #
+nano eula.txt
+
+java -jar server.jar
+
+# Alter AutoStart to "java -Xms4G -Xmx4G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+DisableExplicitGC -jar server.jar nogui"
+" #
+nano autostart
+
+chmod +x autostart
+
+bash autostart
+
+
+
+
+
+# to start server #
+
+./start-ubuntu.sh
+
+cd mcserver/
+
+bash autostart
